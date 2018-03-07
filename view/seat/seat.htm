@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="./view/seat/seat.css">
+<!-- 影院详细信息 -->
+<div>
+    <!-- 标题栏 -->
+    <header class="bar bar-nav">
+        <a class="icon icon-left pull-left" ng-click="back()"></a>
+        <h1 class="title">选择座位</h1>
+    </header>
+    <!-- 座位选择区域 -->
+    <div class="content">
+        <div style="height: 530px">
+            <div id="seat-map">
+                <div class="front">[&nbsp;&nbsp;&nbsp;屏幕&nbsp;&nbsp;&nbsp;]</div>
+            </div>
+            <div id="legend"></div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <div class="card-content-inner">
+                    <p>座位：</p>
+                    <ul id="selected-seats"></ul>
+                    <p>票数：
+                        <span id="counter">0</span>
+                    </p>
+                    <p>总计：
+                        <b>￥
+                            <span id="total">0</span>
+                        </b>
+                    </p>
+                    <a href="#/payment" class="button button-big button-fill button-danger">确认</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

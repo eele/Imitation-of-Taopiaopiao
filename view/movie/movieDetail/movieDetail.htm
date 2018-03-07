@@ -1,0 +1,151 @@
+<link rel="stylesheet" href="./view/movie/movieDetail/movieDetail.css">
+<!-- 影片详情 -->
+<div>
+    <!-- 标题栏 -->
+    <header class="bar bar-nav">
+        <a class="icon icon-left pull-left" ng-click="back()"></a>
+        <a ng-href="#/cinema/{{movie.id}}" class="button button-fill button-round pull-right" style="width:100px">
+            选座购票
+        </a>
+    </header>
+    <!-- 影片信息 -->
+    <div class="content">
+        <div class="card">
+            <div class="card-header desc-top">
+                <div>
+                    <span>
+                        <b>{{movie.showName}}</b>
+                    </span>
+                    <br>
+                    <span style="font-size:12px">{{movie.showNameEn}}</span>
+                    <br>
+                    <br>
+                    <span style="font-size:14px">{{movie.type}}</span>
+                    <br>
+                    <span style="font-size:14px">{{movie.country}} | {{movie.duration}}分钟</span>
+                    <br>
+                    <span style="font-size:14px">{{movie.features.openTime}} 上映</span>
+                </div>
+                <div>
+                    <img ng-src="./data/hot/{{movie.poster}}">
+                </div>
+            </div>
+            <div class="card-content desc-con">
+                <div class="row">
+                    <div class="col-20">
+                        <span style="font-size:20px;font-weight:900">
+                            {{movie.remark}}
+                        </span>
+                    </div>
+                    <div class="col-80">
+                        <div class="star-rating">
+                            <div class="star-rating-top" style="width:{{movie.remark * 10}}%">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="star-rating-bottom">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    观众评分 {{movie.remarkCount}}人
+                </div>
+            </div>
+            <div class="card-footer">{{movie.description}}</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <b>观影提示</b>
+            </div>
+            <div class="card-content">
+                <div class="card-content-inner">{{movie.features.easterEggsInfo}}</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <b>演职人员</b>
+            </div>
+            <div class="card-content">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper" style="height:170px">
+                        <div class="swiper-slide" ng-repeat="director in movie.artistes.directors">
+                            <img class="aImg" ng-src="./data/movie/{{director.avatar}}">
+                            <span style="font-size:15px">{{director.artisteName}}</span><br>
+                            <span style="font-size:13px">导演</span>
+                        </div>
+                        <div class="swiper-slide" ng-repeat="actor in movie.artistes.actor">
+                            <img class="aImg" ng-src="./data/movie/{{actor.avatar}}">
+                            <span style="font-size:15px">{{actor.artisteName}}</span><br>
+                            <span style="font-size:13px">饰 {{actor.roleName}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <b>票房</b>
+            </div>
+            <div class="card-content">
+                <div class="card-content-inner">
+                    <div class="row">
+                        <div class="col-33" style="text-align:center">
+                            <span class="num">{{movie.boxOfficeData.sort}}</span>
+                            <br>
+                            <span>今日票房排名</span>
+                        </div>
+                        <div class="col-33" style="text-align:center">
+                            <span class="num">{{movie.boxOfficeData.weeklyBoxOffice}}</span>
+                            <br>
+                            <span>首周票房（万）</span>
+                        </div>
+                        <div class="col-33" style="text-align:center">
+                            <span class="num">{{movie.boxOfficeData.totalBoxOffice}}</span>
+                            <br>
+                            <span>累计票房（万）</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <b>观众热评</b>
+            </div>
+            <div class="card-content">
+                <div class="card-content-inner">
+                    <div class="list-block media-list">
+                        <ul>
+                            <li ng-repeat="item in comments">
+                                <div class="row no-gutter">
+                                    <div class=" col-20" style="padding: 15px">
+                                        <img ng-src="./data/movie/comment/{{item.avatar}}" style='width: 2.2rem;'>
+                                    </div>
+                                    <div class=" col-80">
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">
+                                                    <b>{{item.nickName}}</b>
+                                                </div>
+                                            </div>
+                                            <div>{{item.content}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

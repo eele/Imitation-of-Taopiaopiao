@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="./view/movie/upcoming/upcoming.css">
+<!-- 即将上映 -->
+<div class="list-block media-list moList">
+    <ul>
+        <li ng-repeat="item in releasedMovieList | searchMovieFilter:keyword">
+            <a ng-href="#/movieDetail/{{item.id}}" class="item-link item-content">
+                <div class="item-media poster">
+                    <img class="poster" ng-src="./data/upcoming/{{item.poster}}">
+                </div>
+                <div class="item-inner">
+                    <div class="item-title-row">
+                        <div class="item-title movie-title">
+                            <b>{{item.showName}}</b>
+                        </div>
+                        <div class="item-after">
+                            <button class="button button-round">购票</button>
+                        </div>
+                    </div>
+                    <div class="item-subtitle">
+                        <div class="star-rating">
+                            <div class="star-rating-top" style="width:{{item.remark * 10}}%">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="star-rating-bottom">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <span style="font-size:13px">&nbsp;{{item.remark}}</span>
+                        <span class="type">&nbsp;&nbsp;&nbsp;{{item.type}}</span>
+                    </div>
+                    <div class="item-text movie-sub">
+                        导演：{{item.director}}
+                        <br>主演：{{item.leadingRole}}
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>

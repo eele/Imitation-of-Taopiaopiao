@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="./view/mine/mine.css">
+<!-- 我的页面 -->
+<div>
+    <div class="card" style="margin:0">
+        <div class="card-content top">
+            <div class="list-block media-list">
+                <ul>
+                    <li class="item-content">
+                        <div class="item-media">
+                            <img ng-src="{{user.avatar}}" style="border-radius: 40px">
+                        </div>
+                        <div class="item-inner">
+                            <div class="item-title-row">
+                                <div class="item-title">
+                                    <b>{{user.userName}}</b>
+                                </div>
+                            </div>
+                            <div class="item-subtitle">关注 {{user.follow}} | 被关注 {{user.beFollowed}}</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="list-block">
+        <ul>
+            <li class="item-content item-link" onClick="location.href='#/mine/tickets'">
+                <div class="item-media">
+                </div>
+                <div class="item-inner">
+                    <div class="item-title">电影票</div>
+                </div>
+            </li>
+            <li class="item-content item-link" onClick="location.href='#/mine/coupons'">
+                <div class="item-media">
+                </div>
+                <div class="item-inner">
+                    <div class="item-title">优惠券</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <br>
+    <br>
+    <div class="list-block">
+        <a href="#/login" class="button button-big button-fill button-warning">退出登录</a>
+    </div>
+</div>

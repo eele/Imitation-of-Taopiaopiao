@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, 
+        minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>淘票票</title>
+
+    <link rel="stylesheet" href="lib/light7/css/light7.min.css">
+    <link rel="stylesheet" href="lib/light7/css/light7-swiper.min.css">
+    <link rel="stylesheet" href="lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    
+    <script type="text/javascript" src="lib/angular/angular.js"></script>
+    <script type="text/javascript" src="lib/angular/angular-ui-router.js"></script>
+    <script type='text/javascript' src='lib/jquery/jquery-3.2.1.min.js'></script>
+    <script type='text/javascript' src='lib/jquery/jquery.seat-charts.min.js'></script>
+    <script type='text/javascript' src='lib/light7/js/light7.js'></script>
+    <script type='text/javascript' src='lib/light7/js/light7-swiper.min.js'></script>
+    <script type="text/javascript" src="js/router.js"></script>
+    <script type="text/javascript" src="js/service.js"></script>
+    <script type="text/javascript" src="js/filter.js"></script>
+    <script type="text/javascript" src="js/controller.js"></script>
+</head>
+
+<body ng-app="myApp" class="theme-pink">
+    <div class="page" ng-controller="PageCtrl">
+        <!-- 导航栏 -->
+        <nav class="bar bar-tab" ng-show="barIsShow">
+            <a class="tab-item active" href="#/movie/released">
+                <span class="icon icon-app"></span>
+                <span class="tab-label">热映</span>
+            </a>
+            <a class="tab-item" href="#/cinema">
+                <span class="icon icon-home"></span>
+                <span class="tab-label">影院</span>
+            </a>
+            <a class="tab-item" href="#/mine">
+                <span class="icon icon-me"></span>
+                <span class="tab-label">我的</span>
+            </a>
+        </nav>
+        <!-- 路由显示区域 -->
+        <div ui-view></div>
+    </div>
+    <!-- 影院选项区域 -->
+    <div ng-include="'./view/cinema/popover.htm'"></div>
+</body>
+
+</html>

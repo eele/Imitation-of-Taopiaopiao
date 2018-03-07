@@ -1,0 +1,88 @@
+<link rel="stylesheet" href="./view/cinema/cinema.css">
+<!-- 影院列表 -->
+<div>
+    <!-- 正常状态 -->
+    <header class="bar bar-nav tit" ng-show="!search">
+        <!-- 选择城市按钮 -->
+        <a class="pull-left open-popup open-services city" data-popup=".popup-services">
+            <i class="fa fa-map-marker fa-lg"></i>
+        </a>
+        <!-- 影院选项 -->
+        <div class="row cho">
+            <div class="col-33">
+                <a class="tab-item open-popover" data-popover=".pop1">
+                    <b>区域</b>
+                    <i class="fa fa-angle-down"></i>
+                </a>
+            </div>
+            <div class="col-33">
+                <a class="tab-item open-popover" data-popover=".pop2">
+                    <b>排序</b>
+                    <i class="fa fa-angle-down"></i>
+                </a>
+            </div>
+            <div class="col-33">
+                <a class="tab-item open-popover" data-popover=".pop3">
+                    <b>特色</b>
+                    <i class="fa fa-angle-down"></i>
+                </a>
+            </div>
+        </div>
+        <!-- 搜索按钮 -->
+        <span class="icon icon-search search" ng-click="search=true"></span>
+    </header>
+    <!-- 搜索状态 -->
+    <header class="bar-search" ng-show="search">
+        <div class="searchbar row">
+            <div class="search-input col-85">
+                <input type="search" ng-model="keyword" id='search' placeholder='搜索影院名/地址...' />
+            </div>
+            <a class="button button-primary col-15">
+                <span class="icon" ng-click="search=false">×</span>
+            </a>
+        </div>
+    </header>
+    <!-- 影院列表 -->
+    <div class="content">
+        <div class="list-block media-list ci-li">
+            <ul>
+                <li ng-repeat="item in cinemas 
+                | areaFilter:f.area | supportFilter:f.support 
+                | orderBy:f.orderBy:false | searchCinemaFilter:keyword">
+                    <a ng-href="#/cinemaDetail/{{item.cinemaId}}/{{mid}}" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title-row">
+                                <div class="item-title">
+                                    <b>{{item.cinemaName}}</b>
+                                    &nbsp;&nbsp;
+                                    <span style="font-size:13px">{{item.distance}} km</span>
+                                </div>
+                                <div class="item-after" style="font-size:15px;color:rgb(255, 153, 0)">
+                                    {{item.minPrice / 100.0}} 元起
+                                </div>
+                            </div>
+                            <div class="item-subtitle">{{item.address}}</div>
+                            <div class="item-text" style="height:auto">
+                                <span style="color:rgb(83, 83, 233)" ng-repeat="di in item.displaySupports">
+                                    [{{di}}]
+                                </span>
+                                <div ng-repeat="tag in item.activityTags">
+                                    <span style="color:rgb(252, 92, 0)">
+                                        [{{tag.tag}}]
+                                    </span>
+                                    <span style="color:grey">
+                                        {{tag.title}}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 选择城市 -->
+    <div ng-include="'./view/movie/city/city.htm'"></div>
+
+</div>

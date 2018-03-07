@@ -1,0 +1,45 @@
+<!-- 订票结算 -->
+<div>
+    <!-- 标题栏 -->
+    <header class="bar bar-nav">
+        <a class="icon icon-left pull-left" ng-click="back()"></a>
+        <h1 class="title">订票结算</h1>
+    </header>
+    <!-- 订票信息 -->
+    <div class="content">
+        <div class="card">
+            <div class="card-header">
+                <b>{{payment.showSeatItem.showName}}</b>
+            </div>
+            <div class="card-content">
+                <div class="card-content-inner">
+                    {{payment.showSeatItem.showDate}} ({{payment.showSeatItem.showVersion}})
+                    <br> {{payment.showSeatItem.cinemaName}}
+                    <br> {{payment.showSeatItem.hallName}}
+                </div>
+            </div>
+            <div class="card-footer">
+                <h3>票价总计：{{totalprice}} 元</h3>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <b>购票须知</b>
+            </div>
+            <div class="card-content">
+                <div class="card-content-inner">
+                    {{payment.notice.normalNotice.notice}}
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                应付
+                <h3 style="color:rgb(255, 115, 0)">{{totalprice}} 元</h3>
+            </div>
+            <div class="card-footer button button-big button-fill button-danger">
+                <b style="padding: 39%;">立即付款</b>
+            </div>
+        </div>
+    </div>
+</div>

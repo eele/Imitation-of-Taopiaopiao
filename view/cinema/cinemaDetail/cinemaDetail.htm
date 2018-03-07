@@ -1,0 +1,116 @@
+<link rel="stylesheet" href="./view/cinema/cinemaDetail/cinemaDetail.css">
+<!-- 影院详细信息 -->
+<div>
+    <!-- 标题栏 -->
+    <header class="bar bar-nav">
+        <a class="icon icon-left pull-left" ng-click="back()"></a>
+        <h1 class="title">电影院</h1>
+    </header>
+    <!-- 影院基本信息 -->
+    <div class="content">
+        <div class="card" style="margin-left:0;margin-right:0">
+            <div class="card-header">
+                <b>{{cinema.cinemaVo.cinemaName}}</b>
+            </div>
+            <div class="card-content">
+                <div class="card-content-inner">
+                    <div>地址：{{cinema.cinemaVo.address}}</div>
+                    <div>电话：
+                        <span ng-repeat="tel in cinema.cinemaVo.phoneList">{{tel}}</span>
+                    </div>
+                    <br>
+                    <div ng-repeat="support in cinema.cinemaVo.supportList" class="row">
+                        <span class="col-20" style="color:blue;width: 70px;">[{{support.name}}] </span>
+                        <span class="col-80" style="width: 220px;">{{support.desc}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 影片列表 -->
+        <div>
+            <div class="content-block-title" ng-show="mid == undefined">该影院热映电影</div>
+            <div class="list-block media-list moList">
+                <ul>
+                    <li ng-repeat="item in cinema.showVos | filter:{'id': mid}">
+                        <a ng-href="#/movieDetail/{{item.id}}" class="item-link item-content">
+                            <div class="item-media poster">
+                                <img class="poster" ng-src="./data/hot/{{item.poster}}">
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title-row">
+                                    <div class="item-title movie-title">
+                                        <b>{{item.showName}}</b>
+                                    </div>
+                                </div>
+                                <div class="item-subtitle">
+                                    <div class="star-rating">
+                                        <div class="star-rating-top" style="width:{{item.remark * 10}}%">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                        <div class="star-rating-bottom">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <span style="font-size:13px">&nbsp;{{item.remark}}</span>
+                                    <span class="type">&nbsp;&nbsp;&nbsp;{{item.type}}</span>
+                                </div>
+                                <div class="item-text movie-sub">
+                                    主演：{{item.leadingRole}}
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 放映时间表 -->
+        <div class="content-block-title" style="height: 23px">选择开场时间</div>
+        <div ng-show="mid != undefined" ng-repeat="(movieid, list) in cinema.showScheduleMap" ng-if="movieid == mid">
+            <div class="card" ng-repeat="item in list">
+                <div class="card-header">
+                    {{item.dateDesc}}
+                </div>
+                <div class="card-content">
+                    <div class="card-content-inner">
+                        <div class="list-block media-list">
+                            <ul>
+                                <li ng-repeat="time in item.scheduleVos">
+                                    <a ng-click="choSeat(time.tradePrice / 100)" class="item-link item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">
+                                                    <span>
+                                                        <b style="font-size:23px">{{time.openTime}}</b>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <span style="font-size:13px">{{time.closeTime}}散场</span>
+                                                    </span>
+                                                </div>
+                                                <div class="item-after" style="color:rgb(255, 94, 0)">
+                                                    <b>{{time.tradePrice / 100}} 元</b>
+                                                </div>
+                                            </div>
+                                            <div class="item-subtitle">
+                                                {{time.showVersion}}
+                                            </div>
+                                            <div class="item-text">
+                                                {{time.hallName}}
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

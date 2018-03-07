@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="./view/cinema/cinema.css">
+<!-- 影院选项 -->
+<div ng-controller="PopoverCtrl">
+    <div class="popover pop1" style="width: 98%">
+        <!-- Popover's angle arrow -->
+        <div class="popover-angle"></div>
+
+        <!-- Popover content -->
+        <div class="popover-inner content-padded">
+            <a class="button area close-popover" ng-click="getFilterObj().area='%%'">
+                不限区域
+            </a>
+            <a class="button area close-popover" 
+            ng-click="getFilterObj().area=item.title" 
+            ng-repeat="item in cinemaFilter.regionNameFilters">
+                {{item.title}}
+            </a>
+        </div>
+    </div>
+
+    <div class="popover pop2">
+        <!-- Popover's angle arrow -->
+        <div class="popover-angle"></div>
+
+        <!-- Popover content -->
+        <div class="popover-inner content-padded">
+            <a class="button close-popover" style="margin-bottom:10px" 
+            ng-click="getFilterObj().orderBy=item.code" 
+            ng-repeat="item in cinemaFilter.sortTypeFilters">
+                {{item.title}}
+            </a>
+        </div>
+    </div>
+
+    <div class="popover pop3" style="width: 98%">
+        <!-- Popover's angle arrow -->
+        <div class="popover-angle"></div>
+
+        <!-- Popover content -->
+        <div class="popover-inner content-padded">
+            <a class="button area close-popover" ng-click="getFilterObj().support='%%'">
+                不限特色
+            </a>
+            <a class="button area close-popover" 
+            ng-click="getFilterObj().support=item.title" 
+            ng-repeat="item in cinemaFilter.supportFilters">
+                {{item.title}}
+            </a>
+        </div>
+    </div>
+</div>

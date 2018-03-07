@@ -1,0 +1,73 @@
+.card {
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.desc-top {
+    height: 181px;
+    background-color:#759987;
+    color: white;
+}
+
+.desc-con {
+    padding: 23px;
+}
+
+.star-rating {
+    float: left;
+    unicode-bidi: bidi-override;
+    color: #ddd;
+    font-size: 0;
+    height: 25px;
+    position: relative;
+    display: table;
+    padding: 0;
+    text-shadow: 0px 1px 0 #a2a2a2;
+}
+
+.star-rating span {
+    padding: 6px;
+    font-size: 20px;
+}
+
+.star-rating span:after {
+    content: "★";
+}
+.moList {
+    margin-top: 0px;
+    padding-bottom: 20px;
+}
+
+.star-rating-top {
+    color: #FFD700;
+    padding: 0;
+    position: absolute;
+    z-index: 1;
+    display: block;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.star-rating-bottom {
+    padding: 0;
+    display: block;
+    z-index: 0;
+}
+
+.num {
+    font-size:20px;
+    font-weight:900;
+}
+
+.aImg {
+    margin-left: 15px;
+    width: 87px;
+    height: 120px;
+}
+
+.swiper-slide {
+    text-align: center;
+}

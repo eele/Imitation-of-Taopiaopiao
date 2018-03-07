@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="./view/movie/movie.css">
+<!-- 影片列表页 -->
+<div>
+    <!-- 标题栏 -->
+    <header class="row no-gutter">
+        <!-- 选择城市按钮 -->
+        <div class="col-20 city">
+            <a class="open-popup open-services " data-popup=".popup-services">
+                <i class="fa fa-map-marker fa-lg"></i>
+            </a>
+        </div>
+        <!-- 影片列表切换标签 -->
+        <div class="col-80 movie-tab">
+            <span class="buttons-row" ng-show="tab">
+                <a href="#/movie/released" class="button button-round active">正在热映</a>
+                <a href="#/movie/upcoming" class="button button-round" ng-click="tab=false">即将上映</a>
+            </span>
+            <span class="buttons-row" ng-show="!tab">
+                <a href="#/movie/released" class="button button-round" ng-click="tab=true">正在热映</a>
+                <a href="#/movie/upcoming" class="button button-round active">即将上映</a>
+            </span>
+        </div>
+    </header>
+    <!-- 搜索框 -->
+    <div class="bar bar-header-secondary">
+        <div class="searchbar">
+            <a class="searchbar-cancel" ng-click="keyword=''">取消</a>
+            <div class="search-input">
+                <label class="icon icon-search" for="search"></label>
+                <input type="search" ng-model="keyword" id='searchMovie' 
+                placeholder='  搜索影片名/ 类型/ 导演/ 主演 ...' />
+            </div>
+        </div>
+    </div>
+    <!-- 影片列表 -->
+    <div ui-view="movieListView" class="content"></div>
+
+    <!-- 选择城市 -->
+    <div ng-include="'./view/movie/city/city.htm'"></div>
+</div>

@@ -1,0 +1,50 @@
+<div>
+    <!-- 标题栏 -->
+    <header class="bar bar-nav">
+        <a class="icon icon-left pull-left" ng-click="back()"></a>
+        <h1 class="title" ng-show="item=='tickets'">电影票</h1>
+        <h1 class="title" ng-show="item=='coupons'">优惠券</h1>
+        <h1 class="title" ng-show="item=='movies1'">看过的电影</h1>
+        <h1 class="title" ng-show="item=='movies2'">想看的电影</h1>
+    </header>
+    <div class="content">
+        <div class="list-block media-list" ng-show="item=='tickets'">
+            <ul>
+                <li ng-repeat="item in li">
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title-row">
+                                <div class="item-title">
+                                    <b>{{item.movie}}</b>
+                                </div>
+                                <div class="item-after">{{item.time}}</div>
+                            </div>
+                            <div class="item-subtitle">{{item.cinema}}</div>
+                            <div class="item-text">{{item.seat}}</div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="list-block media-list" ng-show="item=='coupons'">
+            <ul>
+                <li ng-repeat="item in li">
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title-row">
+                                <div class="item-title">
+                                    <b>{{item.title}}</b>
+                                </div>
+                                <div class="item-after">
+                                    <h3 style="color:rgb(255, 0, 157)"><b>{{item.price}} 元</b></h3>
+                                </div>
+                            </div>
+                            <div class="item-subtitle">{{item.desc}}</div>
+                            <div class="item-text">有效期限：{{item.timeLimit}}</div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+.tit {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+}
+
+.city {
+    padding-right: 40px;
+}
+
+.cho {
+    width: 70%;
+}
+
+.search {
+    float: right;
+    margin-top: -35px;
+    margin-right: 10px;
+}
+
+.area {
+    width:76px;
+    float:left;
+    margin-right:10px;
+    margin-bottom: 10px;
+}
+
+.ci-li {
+    margin-top: 0px;
+    padding-bottom: 20px;
+}
+
+.bar-search {
+    padding-left: 8px;
+    padding-right: 8px;
+}
